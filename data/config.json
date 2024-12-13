@@ -1,0 +1,11 @@
+{
+    "server":{
+        "ip": "",
+        "port": 1145,
+        "mode": "n-n"
+    },
+    "client": {
+        "ip": "localhost",
+        "port": 1145
+    }
+}
