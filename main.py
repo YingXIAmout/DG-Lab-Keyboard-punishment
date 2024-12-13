@@ -317,7 +317,7 @@ def start_server_and_gui():
     btn_start_wave_data_gui.grid(row=1, column=2)
     writer.grid(row=5, column=0, columnspan=2, sticky='sw')
     link_label.grid(row=5, column=2, sticky='se')
-    link_label.bind("<Button-1>", lambda e: webbrowser.open("https://bilibili.com"))
+    link_label.bind("<Button-1>", lambda e: webbrowser.open("https://github.com/YingXIAmout/DG-Lab-Keyboard-punishment"))
 
     strength_label.grid(row=0,column=0,columnspan=2)
     strength_A_label.grid(row=1,column=0)
