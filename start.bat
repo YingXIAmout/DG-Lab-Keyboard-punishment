@@ -1,1 +1,2 @@
-python main.py
+python %~dp0main.py
+pause
