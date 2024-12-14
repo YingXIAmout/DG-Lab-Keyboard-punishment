@@ -14,7 +14,6 @@ from datetime import datetime
 from pynput import keyboard
 import ws_server
 import ws_client
-import keyborad_listen_gui
 import pulse_wave_gui
 import keyboard_listen
 #图形化窗口
@@ -71,27 +70,17 @@ def start_client():
     client.start_receive_thread()
 #打开key配置界面
 def start_keybind_config_gui():
-    app = keyborad_listen_gui.QApplication(sys.argv)
-    ex = keyborad_listen_gui.KeyBindingGUI()
-    ex.show()
-    sys.exit(app.exec_())
+    subprocess.Popen(['python','keyborad_listen_gui.py'])
 #打开波形生成器
 def start_pulse_wave_gui():
     pulse_wave_gui_app = pulse_wave_gui.WaveDataInputAndConversion()
     pulse_wave_gui_app.run()
-#打开日志窗口
-def start_log_capture():
-    global log_window
-    log_window = log_capture.LogCaptureWindow()
-    log_window.start()
 #启动键盘监听
 def keyboard_listening():
     global error_count
     if thread_client is None:
         log('客户端未启动！')
         return
-    #current_process = psutil.Process(os.getpid())
-    #current_process.nice(psutil.HIGH_PRIORITY_CLASS)
     keyboard_listen_thread = keyboard_listen.KeyBindingHandler(client)
     keyboard_listen_thread.start_listening()
     log('键盘监听已启动！')
@@ -179,12 +168,6 @@ def start_server_and_gui():
         base_dir = os.path.dirname(os.path.abspath(__file__))
     conf_file_path = os.path.join(base_dir, "data", "config.json")
     load_config(conf_file_path)
-    #if load_config(conf_file_path):
-        #start_server_threading(server_ip, server_port)
-    #else:
-        #log("读取配置文件失败")
-        #start_server_threading()
-    # 启动gui.py，这里假设gui.py是一个完整的可执行的有界面的Python脚本
 
     root.title("郊狼 Server&Client")
     root.geometry("800x300")
