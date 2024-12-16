@@ -7,3 +7,4 @@ pip install pillow
 pip install websockets
 pip install qrcode
 pip install psutil
+pip install keyboard
