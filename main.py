@@ -260,8 +260,6 @@ def start_server_and_gui():
     btn_start_gui = tk.Button(root, text="打开按键配置", command=start_keybind_config_gui_in_thread, width=20, height=1)
     # 创建打开波形生成器按钮并调整大小
     btn_start_wave_data_gui = tk.Button(root, text="打开波形生成器", command=start_pulse_wave_gui_in_thread, width=20, height=1)
-    # 启动日志窗口
-    btn_start_log_capture = tk.Button(root, text="启动日志捕获", command=start_log_capture, width=20, height=1)
     # 创建作者标签并放在底部居中
     writer = tk.Label(root, text="By 影曦Amout")
     # 创建超链接标签并放在底部居中
